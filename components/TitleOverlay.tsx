@@ -10,7 +10,7 @@ type TitleOverlayProps = {
 };
 
 /**
- * Brand title sits in the misty upper third —
+ * Route label sits in the misty upper third —
  * tank, bars, and gauges stay unobstructed below.
  */
 export default function TitleOverlay({
@@ -33,19 +33,6 @@ export default function TitleOverlay({
       >
         {route}
       </motion.p>
-
-      <motion.h1
-        className="font-bebas text-[18vw] leading-[0.85] tracking-wide text-warm-white sm:text-[12vw] md:text-[9vw] lg:text-[7.5rem]"
-        style={{
-          textShadow:
-            "0 0 40px rgba(139, 30, 30, 0.35), 0 4px 24px rgba(0,0,0,0.85)",
-        }}
-        initial={{ opacity: 0, y: 28, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.15, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      >
-        BULLET
-      </motion.h1>
 
       <motion.p
         className="mt-1.5 max-w-md font-oswald text-xs uppercase tracking-[0.28em] text-warm-white/65 sm:text-sm"
