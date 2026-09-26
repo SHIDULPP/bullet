@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BULLET — Immersive Royal Enfield Ride Experience
 
-## Getting Started
+Full-viewport, no-scroll ride experience inspired by immersive bus/ride sites.
+Sit on a Bullet, feel the thump, and roll with a YouTube road-trip playlist.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- Framer Motion
+- YouTube IFrame API (hidden player + custom UI)
+- HTML5 Audio (exhaust + horn)
+
+## Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Tap anywhere to start music + exhaust.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configure playlist
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set your YouTube playlist ID:
 
-## Learn More
+```bash
+# .env.local
+NEXT_PUBLIC_YOUTUBE_PLAYLIST_ID=PLxxxxxxxxxxxxxxxx
+```
 
-To learn more about Next.js, take a look at the following resources:
+Or edit the default in `lib/youtube.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Assets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace placeholders in `/public` — see `public/ASSETS.md`:
 
-## Deploy on Vercel
+- `background.jpg` (+ garage variants)
+- `exhaust.mp3` — looping Bullet thump
+- `horn.mp3` — short horn
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+# Deploy the project to Vercel
+```
+
+## Controls
+
+| Control   | Action                                      |
+|-----------|---------------------------------------------|
+| Horn      | Plays horn.mp3                              |
+| Throttle  | Boosts exhaust volume + light screen shake  |
+| Garage    | Switch Bullet backdrop variants             |
+| Full      | Fullscreen API                              |
+| Sleep     | Auto-stop after 15 / 30 / 60 min            |
+| Mute      | Mutes YouTube + exhaust                     |
